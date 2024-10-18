@@ -362,9 +362,10 @@ mod tests {
     fn test_regex_with_substitutions() {
         let input = "first, second";
         let regex = Regex::new(r"(\w+), (\w+)").unwrap();
-        let query = Query::regex(regex, r"$2 $1");
+        // ensure ${1}text syntax works as expected
+        let query = Query::regex(regex, r"$2 ${1}third");
         let replacement = replace(input, &query).unwrap();
-        assert_eq!(replacement.output(), "second first");
+        assert_eq!(replacement.output(), "second firstthird");
     }
 
     #[test]

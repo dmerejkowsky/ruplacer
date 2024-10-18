@@ -80,6 +80,10 @@ ruplacer '(\w+), (\w+)' '$2 $1'
 
 (note the use of single quotes to avoid any processing by the shell)
 
+`${1}` and `${2}` are also supported as an alternative to `$1` and `$2`, see
+[reference
+here](https://docs.rs/regex/1.5.5/regex/struct.Regex.html#replacement-string-syntax).
+Useful if the replacement string is immediately adjacent to literal text.
 
 If you don't want the pattern to be used as a regex, use the `--no-regex` command line flag.
 
